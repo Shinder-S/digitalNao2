@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 public interface PersonService {
-    static ArrayList<Person> getAllPerson();
+    ArrayList<Person> getAllPerson();
     Optional<Person> getPersonById(long id);
     Person savePerson(Person a);
-    boolean detelePerson(long id);
+    boolean deletePersonById(long id);
 }

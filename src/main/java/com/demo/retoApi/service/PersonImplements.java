@@ -28,7 +28,7 @@ public class PersonImplements implements PersonService{
     }
 
     @Override
-    public boolean detelePerson(long id) {
+    public boolean deletePersonById(long id) {
         try{
             Optional<Person> a = getPersonById(id);
             personRepository.delete(a.get());
