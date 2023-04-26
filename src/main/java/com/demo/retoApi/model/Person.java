@@ -2,56 +2,63 @@ package com.demo.retoApi.model;
 
 import jakarta.persistence.*;
 
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+
 @Entity
-@Table()
+@Table(schema = "Author")
 public class Person {
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private long id;
-        private String name;
-        private String adress;
-        private String email;
+        private final long id;
+        private final String apiKey;
+        @Column
+        private String title;
+        @Column
+        private int results;
+        private final String paramsUrl;
 
 
-        public Person(){
 
-        }
-
-        public Person(String name, String adress, String email){
-            this.name = name;
-            this.adress = adress;
-            this.email = email;
+        public Person(String id, String apiKey, String title, int results, String paramsUrl){
+            this.id = Long.parseLong(id);
+            this.apiKey = apiKey;
+            this.title = title;
+            this.results = results;
+            this.paramsUrl = paramsUrl;
         }
 
         public long getId() {
             return id;
         }
 
-        public void setId(long id) {
-            this.id = id;
+
+        public String getApiKey(){
+            return apiKey;
         }
 
-        public String getName() {
-            return name;
+        public String getTitle(){
+            return title;
         }
 
-        public void setName(String name) {
-            this.name = name;
+        public int getResults(){
+            return results;
         }
 
-        public String getAdress() {
-            return adress;
+        public String getParamsUrl(){
+            return paramsUrl;
         }
 
-        public void setAdress(String adress) {
-            this.adress = adress;
+        public String requestSearch() throws URISyntaxException, IOException, InterruptedException{
+            HttpClient client = HttpClient.newHttpClient();
+            String getParams = paramsUrl + "&person_id" + id + "&title" + title + "%res=" + results + "&api_key" + apiKey;
+            HttpRequest request = HttpRequest.newBuilder().uri(new URI(getParams)).build();
+            HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+            return response.body();
         }
 
-        public String getEmail() {
-            return email;
-        }
-
-        public void setEmail(String email) {
-            this.email = email;
-        }
 }
