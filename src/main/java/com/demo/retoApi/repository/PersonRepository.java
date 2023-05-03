@@ -1,7 +1,8 @@
 package com.demo.retoApi.repository;
 
-import com.demo.retoApi.model.Person;
-import org.springframework.data.repository.CrudRepository;
+import com.demo.retoApi.view.PersonView;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface PersonRepository extends CrudRepository<Person, Long> {
-}
+@Repository
+public interface PersonRepository extends JpaRepository<PersonView, String> {}
