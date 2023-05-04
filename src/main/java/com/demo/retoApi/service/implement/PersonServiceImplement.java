@@ -59,10 +59,10 @@ public class PersonServiceImplement implements PersonService {
                     ObjectMapper mapper = new ObjectMapper();
                     PersonView personView = new PersonView();
                     JsonNode jsonNode = mapper.readTree(response.getBody());
-                    personView.setUrl(jsonNode.get("search_metadata").get("google_scholar_author_url").asText());
-                    personView.setId(jsonNode.get("search_metadata").get("id").asText());
-                    personView.setAffiliationName(jsonNode.get("author").get("affiliations").asText());
-                    personView.setResults(jsonNode.get("articles").size());
+                    person.setUrl(jsonNode.get("search_metadata").get("google_scholar_author_url").asText());
+                    person.setId(jsonNode.get("search_metadata").get("id").asText());
+                    person.setAffiliationName(jsonNode.get("author").get("affiliations").asText());
+                    person.setResults(jsonNode.get("articles").size());
 
                     BeanUtils.copyProperties(person, personView);
 
