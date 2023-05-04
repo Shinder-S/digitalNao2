@@ -1,6 +1,6 @@
 USE `person_db`;
 INSERT INTO `person_list`(`id`,`name`,`birthdate`) VALUES ('4Z6vo5QAAAAJ','John Hopcroft','1939-10-07');
-INSERT INTO `person_list`(`id`,`name`,`birthdate`) VALUES ('mG4imMEAAAAJ','Andrew Ng','1976-04-18');
-INSERT INTO `person_list`(`id`,`name`,`birthdate`) VALUES ('JicYPdAAAAAJ','Geoffrey Hinton','1947-12-06');
+INSERT INTO `person_list`(`id`,`name`,`birthdate`) VALUES ('UZ5wscMAAAAJ','Andrew Zizzerman','1957');
+INSERT INTO `person_list`(`id`,`name`,`birthdate`) VALUES ('kukA0LcAAAAJ','Yoshua Bengio','1964-03-05');
 INSERT INTO `person_list`(`id`,`name`,`birthdate`) VALUES ('yxUduqMAAAAJ','Michael I. Jordan','1956-02-25');
-INSERT INTO `person_list`(`id`,`name`,`birthdate`) VALUES ('rDfyQnIAAAAJ','Fei-Fei Li',NULL);
+INSERT INTO `person_list`(`id`,`name`,`birthdate`) VALUES ('Sm14jYIAAAAJ','Jianbo Shi',NULL);

@@ -50,7 +50,7 @@ public class PersonServiceImplement implements PersonService {
             ResponseEntity<String> response
                     = restTemplate.getForEntity(authorServiceUrl , String.class);
 
-            HttpStatus statusCode = (HttpStatus) response.getStatusCode();
+            HttpStatus statusCode = response.getStatusCode();
             if(statusCode==HttpStatus.OK){
                 person = new Person();
                 person.setId(id);
